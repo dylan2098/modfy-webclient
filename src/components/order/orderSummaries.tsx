@@ -41,7 +41,7 @@ export default function OrderSummaries({
     let orderQuantity = 0;
 
     order && order.products && order.products.map(productDetails => {
-      if (productDetails.id == product.id) {
+      if (productDetails.id === product.id) {
         if(productDetails.status) {
           status = productDetails.status;
         }

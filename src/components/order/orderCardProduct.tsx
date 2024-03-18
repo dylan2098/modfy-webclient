@@ -78,7 +78,7 @@ export default function OrderCardProduct({
               </div>
               <p className="font-weight-semibold text-dark">Order placed</p>
             </div>
-            {status == "Order Placed" && 
+            {status === "Order Placed" && 
             <>
               <div className="d-block text-center">
                 <div className="icon icon-shape icon-sm bg-secondary text-white text-center border-radius-sm d-flex align-items-center justify-content-center mb-3 mx-auto">
@@ -110,7 +110,7 @@ export default function OrderCardProduct({
               </div>
             </>
             }
-            {status == "Processed" && 
+            {status === "Processed" && 
             <>
               <div className="d-block text-center">
                 <div className="icon icon-shape icon-sm bg-dark text-white text-center border-radius-sm d-flex align-items-center justify-content-center mb-3 mx-auto">
@@ -143,7 +143,7 @@ export default function OrderCardProduct({
               </div>
             </>
             }
-            {status == "Shipped" && 
+            {status === "Shipped" && 
             <>
               <div className="d-block text-center">
                 <div className="icon icon-shape icon-sm bg-dark text-white text-center border-radius-sm d-flex align-items-center justify-content-center mb-3 mx-auto">
@@ -173,7 +173,7 @@ export default function OrderCardProduct({
               </div>
             </>
             }
-            {status == "Delivered" && 
+            {status === "Delivered" && 
             <>
               <div className="d-block text-center">
                 <div className="icon icon-shape icon-sm bg-dark text-white text-center border-radius-sm d-flex align-items-center justify-content-center mb-3 mx-auto">

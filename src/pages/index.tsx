@@ -30,32 +30,33 @@ import IncentiveCols from '../components/incentives/incentiveCols';
 
 let cartItems: any = [];
 data.shoppingCart.map(id => 
-  data.products.filter(x => x.id == id).map(x => cartItems.push(x))
+  data.products.filter(x => x.id === id).map(x => cartItems.push(x))
 )
 let cartItems2: any = [];
 data.shoppingCart2.map(id => 
-  data.products.filter(x => x.id == id).map(x => cartItems2.push(x))
+  data.products.filter(x => x.id === id).map(x => cartItems2.push(x))
 )
 
 // filter reviews with ID 01
-let productReviews = data.reviews.filter(x => x.productID == "01");
+let productReviews = data.reviews.filter(x => x.productID === "01");
 
 let orderProducts: any = [];
 
 data.orders[0].products.forEach(productDetails => {
   data.products.forEach(product => {
-    if (product.id == productDetails.id) {
+    if (product.id === productDetails.id) {
       orderProducts.push(product);
     }
   });
 })
 
-let orderHistoryProducts = new Set();
+
+let orderHistoryProducts: any = new Set();
 
 data.orders.forEach((order) => {
   order.products.forEach(productDetails => {
     data.products.forEach(product => {
-      if (product.id == productDetails.id) {
+      if (product.id === productDetails.id) {
         orderHistoryProducts.add(product);
       }
     });
@@ -349,7 +350,7 @@ export default function HomePage() {
       <div className="my-10">
         <h3 className="mt-5">Order Summaries</h3>
         <p className="text-body">With order summary sidebar</p>
-        <OrderSummaries order={data.orders[0]} products={orderProducts} />
+        <OrderSummaries order={{...data.orders[0], orderNumber: data.orders[0].orderNumber.toString()}} products={orderProducts} />
       </div>
 
       <div className="my-10">
@@ -365,7 +366,6 @@ export default function HomePage() {
         <p className="text-body">3-column with illustrations and header</p>
         <IncentiveCols order={''} />
       </div>
-      
       <Footer />
     </div>
     </>

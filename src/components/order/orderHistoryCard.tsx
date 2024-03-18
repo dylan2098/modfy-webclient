@@ -42,7 +42,7 @@ export default function OrderHistoryCard({
     let dateModified = "";
 
     products.map((product, i) => {
-      if (productDetails.id == product.id) {
+      if (productDetails.id === product.id) {
         if(productDetails.status) {
           productStatus = productDetails.status;
         }
