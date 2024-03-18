@@ -349,21 +349,21 @@ export default function HomePage() {
       <div className="my-10">
         <h3 className="mt-5">Order Summaries</h3>
         <p className="text-body">With order summary sidebar</p>
-        <OrderSummaries order={data && data.orders && data.orders[0]} products={orderProducts} />
+        <OrderSummaries order={data.orders[0]} products={orderProducts} />
       </div>
 
       <div className="my-10">
-      <OrderHistory orders = {data.orders} products={orderHistoryProducts} />
+      <OrderHistory orders={data.orders} products={orderHistoryProducts} />
       </div>
 
       <div className="my-10">
-        <IncentiveLarge />
+        <IncentiveLarge order={''} />
       </div>
 
       <div className="my-10">
         <h3 className="mt-5">Features</h3>
         <p className="text-body">3-column with illustrations and header</p>
-        <IncentiveCols />
+        <IncentiveCols order={''} />
       </div>
       
       <Footer />
