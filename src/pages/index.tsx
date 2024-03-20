@@ -63,7 +63,7 @@ data.orders.forEach((order) => {
   })
 })
 
-export default function HomePage() {
+export default function ComponentPage() {
   return (
     <>
     <Navbar />
