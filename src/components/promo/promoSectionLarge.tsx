@@ -1,9 +1,9 @@
 interface Props {
-  title: string;
-  full_description: string;
-  pageHeaderBgImg: string;
-  pageHeaderMinVh: string;
-  pageHeaderRadius: string;
+  title?: string;
+  full_description?: string;
+  pageHeaderBgImg?: string;
+  pageHeaderMinVh?: string;
+  pageHeaderRadius?: string;
 }
 
 export default function TestimonialsFade({
