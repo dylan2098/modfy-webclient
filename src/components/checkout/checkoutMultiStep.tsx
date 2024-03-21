@@ -55,7 +55,7 @@ export default function CheckoutSummary({
             <ShippingInfo />
             
 
-            <button className="btn btn-dark w-100 mt-4">Continue</button>        
+            <a className="btn btn-dark w-100 mt-4" type='button' href='/checkout-review'>Continue</a>        
           </div>
           <div className="col-12 col-lg-6 p-lg-5">
             <small className="opacity-6">Amount</small>

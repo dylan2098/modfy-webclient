@@ -57,8 +57,8 @@ export default function ShoppingCart({
                 <OrderSummary 
                   subtotal={subtotal}
                 />
-                <button className="btn btn-dark btn-lg w-100">Checkout</button>
-                <button className="btn btn-white btn-lg w-100">Continue Shopping</button>
+                <a className="btn btn-dark btn-lg w-100" type='button' href='/checkout?step=1'>Checkout</a>
+                <a className="btn btn-white btn-lg w-100" type='button' href='/product-list'>Continue Shopping</a>
                 <p className="text-center">Tax included. Shipping calculated at checkout.</p>
               </div>
             </div>

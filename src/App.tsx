@@ -8,6 +8,8 @@ import CartPage from './pages/cart';
 import ProductPage from './pages/product';
 import HomePage from './pages/home';
 import ProductListPage from './pages/productList';
+import CheckoutPage from './pages/checkout';
+import CheckoutReviewPage from './pages/checkoutReview';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path='/cart' element={<CartPage />} />
         <Route path='/components' element={<ComponentPage />} />
         <Route path='/home' element={<HomePage />} />
+        <Route path='/checkout' element={<CheckoutPage />} />
+        <Route path='/checkout-review' element={<CheckoutReviewPage />} />
         <Route path='*' element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
