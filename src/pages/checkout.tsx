@@ -14,7 +14,7 @@ export default function CheckoutPageStep1() {
     <>
       <Navbar />
       <div className='container my-5'>
-      <div className='my-5'>
+        <div className='my-5'>
           <h3>Checkout Forms</h3>
           <p>SWith order summary sidebar</p>
           <CheckoutMultiStep products={cartItems2} />

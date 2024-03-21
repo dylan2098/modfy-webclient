@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingBag, faSignIn } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingBag, faSignIn, faLocation } from '@fortawesome/free-solid-svg-icons';
 
 
 const Navbar = () => {
@@ -94,7 +94,7 @@ const Navbar = () => {
                 aria-current='page'
                 href='/find-store'
               >
-                Find Store
+                <FontAwesomeIcon icon={faLocation} />  &nbsp; Find Store
               </a>
             </li>
             <li className='nav-item'>
@@ -103,7 +103,7 @@ const Navbar = () => {
                 aria-current='page'
                 href='/cart'
               >
-                <FontAwesomeIcon icon={faShoppingBag} />
+                <FontAwesomeIcon icon={faShoppingBag} />  &nbsp; Cart
               </a>
             </li>
             <li className='nav-item'>
@@ -112,7 +112,7 @@ const Navbar = () => {
                 aria-current='page'
                 href='/login'
               >
-                <FontAwesomeIcon icon={faSignIn} />
+                <FontAwesomeIcon icon={faSignIn} /> &nbsp; Login
               </a>
             </li>
           </ul>

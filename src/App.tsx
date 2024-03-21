@@ -11,6 +11,9 @@ import ProductListPage from './pages/productList';
 import CheckoutPage from './pages/checkout';
 import CheckoutReviewPage from './pages/checkoutReview';
 import OrderSummaryPage from './pages/orderSummary';
+import LoginPage from './pages/login';
+import RegisterPage from './pages/register';
+
 
 function App() {
   return (
@@ -24,6 +27,8 @@ function App() {
         <Route path='/checkout' element={<CheckoutPage />} />
         <Route path='/checkout-review' element={<CheckoutReviewPage />} />
         <Route path='/order-summary' element={<OrderSummaryPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
         <Route path='*' element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
