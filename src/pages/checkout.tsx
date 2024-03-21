@@ -9,7 +9,7 @@ data.shoppingCart2.map((id) =>
   data.products.filter((x) => x.id === id).map((x) => cartItems2.push(x))
 );
 
-export default function CheckoutPageStep1() {
+export default function CheckoutPage() {
   return (
     <>
       <Navbar />
