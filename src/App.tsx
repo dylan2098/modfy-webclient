@@ -10,6 +10,7 @@ import HomePage from './pages/home';
 import ProductListPage from './pages/productList';
 import CheckoutPage from './pages/checkout';
 import CheckoutReviewPage from './pages/checkoutReview';
+import OrderSummaryPage from './pages/orderSummary';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='/home' element={<HomePage />} />
         <Route path='/checkout' element={<CheckoutPage />} />
         <Route path='/checkout-review' element={<CheckoutReviewPage />} />
+        <Route path='/order-summary' element={<OrderSummaryPage />} />
         <Route path='*' element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
