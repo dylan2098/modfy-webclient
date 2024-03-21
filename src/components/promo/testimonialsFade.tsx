@@ -39,7 +39,7 @@ export default function TestimonialsFade({
           </div>
         </div>
         <div className="container">
-          <h3 className="font-weight-bolder mt-4 mb-2">Our customer’s opinion</h3> 
+          <h3 className="font-weight-bolder mt-8 mb-2">Our customer’s opinion</h3> 
           <p className="mb-5 w-60">Society has put up so many boundaries, so many limitations on what’s right and wrong that it’s almost impossible to get a pure thought out.</p>
           <div className="row">
             <div className="col-12 col-md-6 col-lg-4">

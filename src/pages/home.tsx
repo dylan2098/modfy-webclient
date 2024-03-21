@@ -6,6 +6,7 @@ import CardProduct from '../components/products/cardProduct';
 import CardCategory from '../components/products/cardCategory';
 import TestimonialsFade from '../components/promo/testimonialsFade';
 import PromoSectionLarge from '../components/promo/promoSectionLarge';
+import IncentiveLarge from '../components/incentives/incentiveLarge';
 
 export default function HomePage() {
   return (
@@ -52,8 +53,8 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-
-      <div className="my-10">
+      
+      <div className="my-5">
         <h3 className="mt-5">Promo Sections</h3>
         <p className="text-body">With fading background image and testimonials</p>
         <PromoSectionLarge 
@@ -63,6 +64,10 @@ export default function HomePage() {
           pageHeaderMinVh="50vh"
           pageHeaderRadius="1rem"
         />
+      </div>
+
+      <div className="my-5">
+        <IncentiveLarge order={''} />
       </div>
 
       <div className="my-5">
