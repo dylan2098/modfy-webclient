@@ -6,6 +6,7 @@ import UpperNavbar from '../components/store/upperNavbar';
 import CardProduct from '../components/products/cardProduct';
 import ShoppingCart from '../components/cart/shoppingCart';
 import StoreDoubleColumn from '../components/store/storeDoubleColumn';
+import ComplexFooter from '../components/complexFooter';
 
 let cartItems: any = [];
 data.shoppingCart.map((id) =>
@@ -19,8 +20,8 @@ export default function CartPage() {
 
       <ShoppingCart products={cartItems} />
 
-      <div className='container mt-5'>
-        <div className='row'>
+      <div className='container'>
+        <div className='row mt-7'>
           <h5 className='mb-4'>You may also like...</h5>
           {data.products.map((product) => (
             <div className='col-md-6 col-lg-3'>
@@ -37,7 +38,9 @@ export default function CartPage() {
           ))}
         </div>
         <hr className='dark horizontal my-5' />
-        <StoreDoubleColumn />
+        <div className='my-2'>
+          <ComplexFooter />
+        </div>
       </div>
     </>
   );

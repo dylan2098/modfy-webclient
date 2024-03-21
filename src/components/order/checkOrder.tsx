@@ -12,7 +12,7 @@ export default function CheckOrder() {
           <input type='text' className='form-control' placeholder='Enter your order number' />
         </div>
 
-        <a className='btn btn-dark w-100 mt-3' type='button' href='/check-order'>
+        <a className='btn btn-dark w-100 mt-3' type='button' href='/order-tracking'>
           Check Status
         </a>
       </div>

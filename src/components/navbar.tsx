@@ -82,9 +82,9 @@ const Navbar = () => {
               <a
                 className='nav-link text-dark font-weight-bold d-flex align-items-center me-2 '
                 aria-current='page'
-                href='/check-orders'
+                href='/check-order'
               >
-                Check Orders
+                Check Order
               </a>
             </li>
             <li className='nav-item'>

@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import ComponentPage from './pages/components';
 import LandingPage from './pages/landing';
-import CartPage from './pages/cart';
+import CartPage from './pages/cartPage';
 import ProductPage from './pages/product';
 import HomePage from './pages/home';
 import ProductListPage from './pages/productList';
@@ -13,6 +13,9 @@ import CheckoutReviewPage from './pages/checkoutReview';
 import OrderSummaryPage from './pages/orderSummary';
 import LoginPage from './pages/login';
 import RegisterPage from './pages/register';
+import CheckOrderPage from './pages/checkOrder';
+import OrderTrackingPage from './pages/orderTracking';
+
 
 
 function App() {
@@ -29,6 +32,8 @@ function App() {
         <Route path='/order-summary' element={<OrderSummaryPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
+        <Route path='/check-order' element={<CheckOrderPage />} />
+        <Route path='/order-tracking' element={<OrderTrackingPage/>} />
         <Route path='*' element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
