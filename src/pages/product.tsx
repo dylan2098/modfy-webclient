@@ -6,14 +6,17 @@ import CardProduct from '../components/products/cardProduct';
 import ProductOverviewGrid from '../components/products/productOverviewGrid';
 import StoreDoubleColumn from '../components/store/storeDoubleColumn';
 import ReviewSummaryChart from '../components/reviews/reviewSummaryChart';
+import ComplexFooter from '../components/complexFooter';
 
-let productReviews = data.reviews.filter((x) => x.productID == '01').map(review => ({...review, productID: Number(review.productID)}));
+let productReviews = data.reviews
+  .filter((x) => x.productID == '01')
+  .map((review) => ({ ...review, productID: Number(review.productID) }));
 
 export default function ProductPage() {
   return (
     <>
       <Navbar />
-      <div className='container mt-5'>
+      <div className='container'>
         <ProductOverviewGrid
           colors={data.products[0].colors}
           images={data.products[0].images}
@@ -46,8 +49,9 @@ export default function ProductPage() {
             </div>
           ))}
         </div>
-        <hr className='dark horizontal my-5' />
-        <StoreDoubleColumn />
+        <div className='my-2'>
+          <ComplexFooter />
+        </div>
       </div>
     </>
   );
