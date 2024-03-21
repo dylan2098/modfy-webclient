@@ -70,16 +70,16 @@ export default function ProductOverview({
                 <div className="col-12 col-lg-6 mb-lg-0 mb-4">
                   <div className="row">
                     <div className="col-6 mb-4">
-                      <img className="w-100 rounded-3" src={'/images/product10.jpg'} alt="" />
+                      <img className="w-100 rounded-3" src={'https://res.cloudinary.com/dvweth7yl/image/upload/v1710921934/product10.jpg'} alt="" />
                     </div>
                     <div className="col-6 mb-4">
-                      <img className="w-100 rounded-3" src={'/images/product11.jpg'} alt="" />
+                      <img className="w-100 rounded-3" src={'https://res.cloudinary.com/dvweth7yl/image/upload/v1710921935/product11.jpg'} alt="" />
                     </div>
                     <div className="col-6 mb-4">
-                      <img className="w-100 rounded-3" src={`/images/product12.jpg`} alt="" />
+                      <img className="w-100 rounded-3" src={`https://res.cloudinary.com/dvweth7yl/image/upload/v1710921936/product12.jpg`} alt="" />
                     </div>
                     <div className="col-6">
-                      <img className="w-100 rounded-3" src={`/images/product13.jpg`} alt="" />
+                      <img className="w-100 rounded-3" src={`https://res.cloudinary.com/dvweth7yl/image/upload/v1710921939/product13.jpg`} alt="" />
                     </div>
                   </div>
                 </div>

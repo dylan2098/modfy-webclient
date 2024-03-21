@@ -226,7 +226,7 @@ export default function ComponentPage() {
         <p className="mb-5">With large size selector</p>
         <ProductQuickview2 
           colors={data.products[1].colors}
-          thumb_src="/images/mirror.png"
+          thumb_src={'https://res.cloudinary.com/dvweth7yl/image/upload/v1710921943/mirror.png'}
           title="Sofa"
           price={data.products[1].price}
           rating={data.products[1].rating}

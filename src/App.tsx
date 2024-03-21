@@ -7,7 +7,7 @@ import {
   Navigate
 } from "react-router-dom";
 
-import ComponentPage from './pages';
+import ComponentPage from './pages/components';
 import LandingPage from './pages/landing';
 import CartPage from './pages/cart';
 import ProductsPage from './pages/products';
@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/products" element={<ProductsPage />}/>
         <Route path="/cart" element={<CartPage />}/>
-        <Route path="/index" element={<ComponentPage />}/>
+        <Route path="/components" element={<ComponentPage />}/>
         <Route path="/home" element={<HomePage />}/>
         <Route path="*" element={<LandingPage />}/>
       </Routes>
