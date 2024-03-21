@@ -2,6 +2,7 @@ import data from '../assets/data.json';
 import '../assets/scss/main.scss';
 import ComplexFooter from '../components/complexFooter';
 import Navbar from '../components/navbar';
+import CheckOrder from '../components/order/checkOrder';
 
 export default function LoginPage() {
   return (
@@ -9,7 +10,7 @@ export default function LoginPage() {
       <Navbar />
       <div className='container my-5'>
         <h3>My Modfy Account</h3>
-        <p>With order summary sidebar</p>
+        <p>Members will enjoy many benefits.</p>
         <div className='my-2'>
           <section className='bg-gray-100 px-2'>
             <div className='row'>
@@ -58,37 +59,18 @@ export default function LoginPage() {
                 <div className='card-footer text-center pt-0 px-lg-2 px-1'>
                   <p className='mb-4 text-sm mx-auto'>
                     Don't have an account?
+                    <a href='/register' className='text-dark font-weight-bold'>
+                      &nbsp; Register &nbsp;
+                    </a>
+                    or 
                     <a href='javascript:;' className='text-dark font-weight-bold'>
-                      &nbsp; Sign up
+                      &nbsp; Forgot
                     </a>
                   </p>
                 </div>
               </div>
 
-              {/* Start Check Order */}
-              <div className='col-6 p-3 p-md-5'>
-                <h5 className='mb-4'>Check Order Status</h5>
-                <div className='form-group'>
-                  <label>Email address</label>
-                  <input
-                    type='email'
-                    className='form-control'
-                    placeholder='Enter your email address'
-                  />
-                </div>
-                <div className='form-group'>
-                  <label>Order number</label>
-                  <input
-                    type='text'
-                    className='form-control'
-                    placeholder='Enter your order number'
-                  />
-                </div>
-
-                <a className='btn btn-dark w-100 mt-3' type='button' href='/check-order'>
-                  Check Status
-                </a>
-              </div>
+              <CheckOrder/>
             </div>
           </section>
         </div>

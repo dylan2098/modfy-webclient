@@ -20,7 +20,7 @@ export default function ComplexFooter() {
                 document.write(new Date().getFullYear())
               </script>
               &nbsp;Modfy Ecommerce by &nbsp;
-              <a href="https://www.creative-tim.com" className="text-dark" target="_blank">Creative Tim</a>.
+              <a href="#" className="text-dark" target="_blank">Astro CTT</a>.
             </div>
           </div>
         </div>
