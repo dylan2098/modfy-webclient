@@ -8,7 +8,7 @@ const ComplexNavbar = () => {
       <div className="container py-2">
         <nav aria-label="breadcrumb">
           <div className="d-flex align-items-center">
-            <span className="text-dark px-3 text-lg font-weight-bold me-4">Astro Ecommerce</span>
+            <span className="text-dark px-3 text-lg font-weight-bold me-4">Modfy Ecommerce</span>
           </div>
         </nav>
         <ul className="navbar-nav d-none d-lg-flex ms-12">

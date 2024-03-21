@@ -9,7 +9,7 @@ import ReviewSummaryChart from '../components/reviews/reviewSummaryChart';
 
 let productReviews = data.reviews.filter((x) => x.productID == '01').map(review => ({...review, productID: Number(review.productID)}));
 
-export default function ProductsPage() {
+export default function ProductPage() {
   return (
     <>
       <Navbar />
