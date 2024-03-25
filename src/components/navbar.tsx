@@ -128,13 +128,13 @@ const Navbar = () => {
               </a>
               <ul className='dropdown-menu' aria-labelledby='navbarDropdownMenuLink2'>
                 <li>
-                  <a className='dropdown-item' href='javascript:;'>
+                  <a className='dropdown-item' href='#'>
                     <img src='https://demos.creative-tim.com/argon-dashboard-pro/assets/img/icons/flags/DE.png' />{' '}
                     &nbsp; Deutsch
                   </a>
                 </li>
                 <li>
-                  <a className='dropdown-item' href='javascript:;'>
+                  <a className='dropdown-item' href='#'>
                     <img src='https://demos.creative-tim.com/argon-dashboard-pro/assets/img/icons/flags/GB.png' />{' '}
                     &nbsp; English (UK)
                   </a>

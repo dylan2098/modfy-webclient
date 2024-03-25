@@ -108,7 +108,7 @@ export default function RegisterPage() {
                       &nbsp; Log in &nbsp;
                     </a>
                     or
-                    <a href='javascript:;' className='text-dark font-weight-bold'>
+                    <a href='#' className='text-dark font-weight-bold'>
                       &nbsp; Forgot
                     </a>
                   </p>

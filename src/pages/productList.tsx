@@ -1,6 +1,6 @@
 import data from '../assets/data.json';
 import '../assets/scss/main.scss';
-import { useEffect, useContext, useState } from 'react';
+import { useEffect, useState, useReducer, useRef } from 'react';
 import ComplexFooter from '../components/complexFooter';
 import Navbar from '../components/navbar';
 import CategoryFilters from '../components/products/categoryFilters';
@@ -8,24 +8,44 @@ import PromoSectionLarge from '../components/promo/promoSectionLarge';
 import TestimonialsFade from '../components/promo/testimonialsFade';
 
 import CatalogService from '../services/catalog.service';
-import CatalogContext from '../context/catalog.context';
+import reducer from '../reducers/reducer';
 
 export default function ProductListPage() {
-  interface CatalogContextType {
-    store: any;
-    dispatch: any;
+  type Response = {
+    metadata: [];
+    error: boolean;
+    message: string;
   }
 
-  const { store, dispatch } = useContext(CatalogContext) as CatalogContextType;
+  const initialized = useRef({
+    items: []
+  })
+
+  const [store, dispatch] = useReducer(reducer, initialized);
 
   const getCatalogs = async () => {
-    const response = await CatalogService.getCatalogs();
-    console.log(response);
+    const response : Response = await CatalogService.getCatalogs();
+
+    if (!response || response.error) {
+      return alert(response.message);
+    }
+
+    if (response.metadata) {
+      dispatch({
+        type: 'init',
+        payload: {
+          items: response.metadata,
+          error: response.error,
+          paging: 0,
+        },
+      });
+    }
   };
 
   useEffect(() => {
     getCatalogs();
-  });
+    console.log('use effect')
+  }, []);
 
   return (
     <>
