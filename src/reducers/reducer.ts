@@ -1,8 +1,4 @@
 export default function reducer(state: any, action: any) {
-  console.log('reducer-state', state);
-  console.log('reducer-action', action);
-  console.log('----------------------------------------');
-
   switch (action.type) {
     case 'init':
       return {

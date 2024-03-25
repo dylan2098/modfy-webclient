@@ -9,22 +9,23 @@ import TestimonialsFade from '../components/promo/testimonialsFade';
 
 import CatalogService from '../services/catalog.service';
 import reducer from '../reducers/reducer';
+import Loading from '../components/loading';
 
 export default function ProductListPage() {
   type Response = {
     metadata: [];
     error: boolean;
     message: string;
-  }
+  };
 
   const initialized = useRef({
-    items: []
-  })
+    items: [],
+  });
 
   const [store, dispatch] = useReducer(reducer, initialized);
 
   const getCatalogs = async () => {
-    const response : Response = await CatalogService.getCatalogs();
+    const response: Response = await CatalogService.getCatalogs();
 
     if (!response || response.error) {
       return alert(response.message);
@@ -44,11 +45,12 @@ export default function ProductListPage() {
 
   useEffect(() => {
     getCatalogs();
-    console.log('use effect')
   }, []);
 
   return (
     <>
+      {(!store || !store.items) && <Loading />}
+
       <Navbar />
       {/* <PromoSectionLarge
         title={'Collection is here'}

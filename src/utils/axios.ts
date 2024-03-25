@@ -2,7 +2,7 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
   baseURL: 'http://localhost:8080/v1/api',
-  timeout: 1000,
+  timeout: 10000,
 });
 
 export const get = async (url: string, opt = {}) => {
