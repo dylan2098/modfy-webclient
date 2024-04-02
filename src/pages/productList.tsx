@@ -8,7 +8,7 @@ import PromoSectionLarge from '../components/promo/promoSectionLarge';
 import TestimonialsFade from '../components/promo/testimonialsFade';
 
 import CatalogService from '../services/catalog.service';
-import reducer from '../reducers/reducer';
+import reducer from '../reducers/reducer';  
 import Loading from '../components/loading';
 
 export default function ProductListPage() {
@@ -23,8 +23,10 @@ export default function ProductListPage() {
   });
 
   const [store, dispatch] = useReducer(reducer, initialized);
+  const [loading, setLoading] = useState(false);
 
   const getCatalogs = async () => {
+    setLoading(true);
     const response: Response = await CatalogService.getCatalogs();
 
     if (!response || response.error) {
@@ -32,7 +34,7 @@ export default function ProductListPage() {
     }
 
     if (response.metadata) {
-      dispatch({
+    dispatch({
         type: 'init',
         payload: {
           items: response.metadata,
@@ -40,6 +42,8 @@ export default function ProductListPage() {
           paging: 0,
         },
       });
+
+      setLoading(false);
     }
   };
 
@@ -49,7 +53,7 @@ export default function ProductListPage() {
 
   return (
     <>
-      {(!store || !store.items) && <Loading />}
+      {loading && <Loading />}
 
       <Navbar />
       {/* <PromoSectionLarge
@@ -60,7 +64,7 @@ export default function ProductListPage() {
       /> */}
       <div className='container my-5'>
         <div className='my-5'>
-          <CategoryFilters title='Our products' />
+          <CategoryFilters title='Our products' catalogs={store.items}/>
         </div>
 
         <div className='my-10'>

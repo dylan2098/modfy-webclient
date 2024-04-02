@@ -195,11 +195,11 @@ export default function ComponentPage() {
           <ShoppingCart2 products={cartItems2} />
         </div>
 
-        <div className='my-10'>
+        {/* <div className='my-10'>
           <h3>Category filters</h3>
           <p className='mb-5'>With inline actions and expandable sidebar filters</p>
-          <CategoryFilters title='Our products' />
-        </div>
+          <CategoryFilters title='Our products' catalogs={}/>
+        </div> */}
 
         <div className='my-10'>
           <h3>Product Quickviewers</h3>
