@@ -1,5 +1,9 @@
 import data from '../../assets/data.json';
 import CardProduct from '../products/cardProduct';
+import { useEffect, useState, useReducer, useRef } from 'react';
+import ProduceService from '../../services/product.service';
+import reducer from '../../reducers/reducer';  
+import Loading from '../../components/loading';
 
 interface Props {
   title: string;
@@ -7,6 +11,44 @@ interface Props {
 }
 
 export default function ProductOverview({ title, catalogs }: Props) {
+
+  type Response = {
+    metadata: [];
+    error: boolean;
+    message: string;
+  };
+
+
+  const initialized = useRef({
+    items: [],
+  });
+
+  const [store, dispatch] = useReducer(reducer, initialized);
+  const [loading, setLoading] = useState(false);
+
+  const getProductsByCategory = async (categoryId: string) => {
+    setLoading(true);
+    const response: Response = await ProduceService.getProductsByCategory(categoryId);
+
+    if (!response || response.error) {
+      return alert(response.message);
+    }
+
+    if (response.metadata) {
+      dispatch({
+        type: 'init',
+        payload: {
+          items: response.metadata,
+          error: response.error,
+          paging: 0,
+        },
+      });
+
+      setLoading(false);
+    }
+  };
+
+
   return (
     <>
       <div className='card card-product card-plain'>
@@ -99,6 +141,7 @@ export default function ProductOverview({ title, catalogs }: Props) {
                                     type='checkbox'
                                     value=''
                                     id='customCheck1'
+                                    onClick={() => getProductsByCategory(category.category_id)}
                                   />
                                   <label className='custom-control-label mb-0'>{category.category_name}</label>
                                 </div>
@@ -115,20 +158,30 @@ export default function ProductOverview({ title, catalogs }: Props) {
           <div className='col-12 col-md-8'>
             <div className='d-flex h-100'>
               <div className='row'>
-                {data.products.slice(0, 3).map((product, i) => (
-                  <div className='col-md-6 col-lg-4' key={i}>
-                    <CardProduct
-                      thumb_src={product.thumb_src}
-                      thumb_alt={product.thumb_alt}
-                      color={product.color}
-                      colors={product.colors}
-                      title={product.title}
-                      description={product.description}
-                      price={product.price}
-                      position='center'
-                    />
-                  </div>
-                ))}
+                {
+                  loading && <Loading /> 
+                }
+                {
+                  !loading && store.items && store.items.length > 0 && store.items.map((product: any, i: number) => (
+                    <div className='col-md-6 col-lg-4' key={i}>
+                      <CardProduct
+                        thumb_src={product.attribute_image}
+                        thumb_alt={product.thumb_alt}
+                        color={product.attribute_color}
+                        colors={[
+                          "silver", 
+                          "black", 
+                        ]}
+                        title={product.product_name}
+                        description={product.attribute_short_description}
+                        price={product.gross_price}
+                        position='center'
+                        product={product}
+                      />
+                    </div>
+                  ))
+                }
+
               </div>
             </div>
           </div>

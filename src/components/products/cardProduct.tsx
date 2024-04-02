@@ -9,6 +9,7 @@ interface Props {
   color?: string;
   colors?: string[];
   position?: string;
+  product?: any;
 }
 
 export default function CardProduct({
@@ -19,48 +20,39 @@ export default function CardProduct({
   price,
   color,
   colors,
-  position
+  position,
+  product,
 }: Props) {
-
-  const classList = "card-body " + "text-" + position;
+  const classList = 'card-body ' + 'text-' + position;
 
   return (
     <>
-      <div className="card card-product border mb-5 shadow-xs border-radius-lg">
-        <a href="/product">
-          <div className="height-350">
-            <img className="w-100 h-100 p-4 rounded-top" src={thumb_src} alt={thumb_alt} />
-          </div>
-          <div className={classList}>
-            {(color) && 
-              <h6 className="text-md mb-1 text-body">{color}</h6>
-            }
-            {(title) && 
-              <h4 className="font-weight-bold">
-                {title}
-              </h4>
-            }
+      {
+      product && (
+        <div className='card card-product border mb-5 shadow-xs border-radius-lg'>
+          <a href={'/product/' + product.product_id}>
+            <div className='height-350'>
+              <img className='w-100 h-100 p-4 rounded-top' src={thumb_src} alt={thumb_alt} />
+            </div>
+            <div className={classList}>
+              {color && <h6 className='text-md mb-1 text-body'>{color}</h6>}
+              {title && <h4 className='font-weight-bold'>{title}</h4>}
 
-            {(description) && 
-              <p className="text-body">{description}</p>
-            }
-           
-            {(colors) &&
-              <ProductBadge colors={colors} />
-            }
-            
-            {(price) && 
-              <h4 className="mb-0 text-lg mt-1 mb-3">
-                ${price.toLocaleString()}
-              </h4>
-            }
+              {description && <p className='text-body'>{description}</p>}
 
-            {!(description || colors || color) &&
-              <a href="#" className="font-weight-normal text-body text-sm">Shop Now</a>
-            }
-          </div>
-        </a>
-      </div>
+              {colors && <ProductBadge colors={colors} />}
+
+              {price && <h4 className='mb-0 text-lg mt-1 mb-3'>${price.toLocaleString()}</h4>}
+
+              {!(description || colors || color) && (
+                <a href='#' className='font-weight-normal text-body text-sm'>
+                  Shop Now
+                </a>
+              )}
+            </div>
+          </a>
+        </div>
+      )}
     </>
   );
-};
+}

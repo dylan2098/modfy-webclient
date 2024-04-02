@@ -36,8 +36,8 @@ export default function ProductPage() {
 
         <div className='row'>
           <h5 className='mb-4'>Customers also purchased</h5>
-          {data.products.map((product) => (
-            <div className='col-md-6 col-lg-3'>
+          {data.products.map((product, i) => (
+            <div className='col-md-6 col-lg-3' key={i}>
               <CardProduct
                 thumb_src={product.thumb_src}
                 thumb_alt={product.thumb_alt}
