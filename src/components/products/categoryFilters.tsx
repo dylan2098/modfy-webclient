@@ -1,7 +1,7 @@
 import data from '../../assets/data.json';
 import CardProduct from '../products/cardProduct';
 import { useEffect, useState, useReducer, useRef } from 'react';
-import ProduceService from '../../services/product.service';
+import ProductService from '../../services/product.service';
 import reducer from '../../reducers/reducer';  
 import Loading from '../../components/loading';
 
@@ -28,7 +28,7 @@ export default function ProductOverview({ title, catalogs }: Props) {
 
   const getProductsByCategory = async (categoryId: string) => {
     setLoading(true);
-    const response: Response = await ProduceService.getProductsByCategory(categoryId);
+    const response: Response = await ProductService.getProductsByCategory(categoryId);
 
     if (!response || response.error) {
       return alert(response.message);

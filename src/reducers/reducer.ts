@@ -1,4 +1,5 @@
 export default function reducer(state: any, action: any) {
+
   switch (action.type) {
     case 'init':
       return {
@@ -7,6 +8,11 @@ export default function reducer(state: any, action: any) {
         paging: action.payload.paging,
         error: action.payload.error,
       };
+
+    case 'get_item':
+      return {
+        item: action.payload.item,
+      }
 
     case 'add_item':
       return {
@@ -19,6 +25,7 @@ export default function reducer(state: any, action: any) {
         ...state,
         query: action.payload.query,
       };
+
 
     case 'delete_item':
       return {
