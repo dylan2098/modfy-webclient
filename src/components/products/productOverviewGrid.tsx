@@ -6,6 +6,7 @@ import ProductService from '../../services/product.service';
 import ProductRating from '../reviews/reviewRating';
 import ProductGallery from './productGallery';
 import ProductSizes from './productSizes';
+import Alert from '../cart/alert';
 import { useParams, useSearchParams } from 'react-router-dom';
 
 interface Props {
@@ -48,6 +49,7 @@ export default function ProductOverview({
 
   const [store, dispatch] = useReducer(reducer, initialized);
   const [loading, setLoading] = useState(false);
+  const [notify, setNotify] = useState(false);
 
   let { productId } = useParams();
 
@@ -76,6 +78,11 @@ export default function ProductOverview({
     productId && getProduct(productId);
   }, []);
 
+  const onClickAddToCart = (productId: string) => {
+    console.log('add product: ', productId);
+    setNotify(true);
+  }
+
   return (
     <>
       {loading && <Loading />}
@@ -88,7 +95,6 @@ export default function ProductOverview({
               {title?.length != 0 && <h2 className='mt-4'>{store && store.item && store.item.product_name}</h2>}
               {full_description?.length != 0 && <p className='mb-5'>{full_description}</p>}
 
-              <form action='' method='post'>
                 {store.item && store.item.gross_price && (
                   <div className='d-flex'>
                     <h3 className='font-weight-normal'>${store.item && store.item.gross_price}</h3>
@@ -105,12 +111,15 @@ export default function ProductOverview({
                     </div>
                   </>
                 )}
-
+w
                 {sizes.size != 0 && <ProductSizes sizes={sizes} />}
-                <button className='btn btn-dark btn-lg' type='submit'>
+                <button className='btn btn-dark btn-lg' type='button' onClick={() => onClickAddToCart(store.item && store.item.product_id)}>
                   Add to cart
                 </button>
-              </form>
+
+                {
+                  notify && <Alert message='Product added to cart' />
+                }
             </div>
           </div>
 
