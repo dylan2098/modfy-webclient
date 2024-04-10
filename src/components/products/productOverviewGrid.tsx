@@ -1,7 +1,9 @@
 import { useEffect, useState, useReducer, useRef } from 'react';
+import Cookies from 'universal-cookie';
 import reducer from '../../reducers/reducer';
 import Loading from '../../components/loading';
 import ProductService from '../../services/product.service';
+import BasketService from '../../services/basket.service';
 
 import ProductRating from '../reviews/reviewRating';
 import ProductGallery from './productGallery';
@@ -78,8 +80,23 @@ export default function ProductOverview({
     productId && getProduct(productId);
   }, []);
 
-  const onClickAddToCart = (productId: string) => {
-    console.log('add product: ', productId);
+  const onClickAddToCart = async (productId: string) => {
+    const cookies = new Cookies(null, { path: '/' });
+
+    if(!cookies.get('basket')) {
+      const response = await BasketService.addToBakset(productId, 1);
+
+      if(!response || response.error) {
+        return alert(response.message);
+      }
+  
+      if(response && response.metadata && response.metadata[0] && response.metadata[0].basket_id) {
+        cookies.set('basket', response.metadata[0].basket_id);
+      }
+    } else {
+      console.log('update basket');
+    }
+
     setNotify(true);
   }
 
@@ -111,7 +128,6 @@ export default function ProductOverview({
                     </div>
                   </>
                 )}
-w
                 {sizes.size != 0 && <ProductSizes sizes={sizes} />}
                 <button className='btn btn-dark btn-lg' type='button' onClick={() => onClickAddToCart(store.item && store.item.product_id)}>
                   Add to cart
