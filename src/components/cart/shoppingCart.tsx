@@ -2,17 +2,14 @@ import ProductCartItem from './productCartItem';
 import OrderSummary from './orderSummary';
 
 interface Props {
-  products: ({
-    thumb_src: string;
-    thumb_alt: string;
-    color: string;
-    title: string;
-    price: number;
-    size: string;
-    stock: boolean
-    subtotal: number;
-    shipping: number;
-    tax: number;
+  products?: ({
+    attribute_image?: string;
+    product_name?: string;
+    attribute_color?: string;
+    gross_price?: number;
+    attribute_size?: string;
+    inventory_stock?: boolean
+    subtotal?: number;
   })[];
 }
 
@@ -20,10 +17,8 @@ export default function ShoppingCart({
   products
 }: Props) {
 
+
   let subtotal = 0;
-  products.map((product, i) => 
-    subtotal += product.price
-  )
 
   return (
     <>
@@ -32,20 +27,20 @@ export default function ShoppingCart({
         <h5 className="text-center mb-5">You are eligible for Free Shipping.</h5>
         <div className="row">
           <div className="col-12 col-lg-7">
-            {products.map((product, i) => 
+            {products && products.map((product, i) => 
               <div key={i}>
-              {i != 0 &&
                 <hr className="horizontal dark my-4"/>  
-              }
-                <ProductCartItem
-                  thumb_src={product.thumb_src}
-                  thumb_alt={product.thumb_alt}
-                  title={product.title}
-                  color={product.color}
-                  size={product.size}
-                  price={product.price}
-                  stock={product.stock}
+                {
+                product && <ProductCartItem
+                  thumb_src={product.attribute_image}
+                  thumb_alt={product.product_name}
+                  title={product.product_name}
+                  color={product.attribute_color}
+                  size={product.attribute_size}
+                  price={product.gross_price}
+                  stock={product.inventory_stock}
                 />
+                }
               </div>
             )}
             
